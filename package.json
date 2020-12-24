@@ -1,0 +1,15 @@
+{
+  "name": "devcalendar-server",
+  "version": "1.0.0",
+  "main": "dist/server.ts",
+  "repository": "git@github.com:AlexsandroBezerra/DevCalendar-server.git",
+  "author": "Alexsandro G Bezerra <alexsandro.g.bezerra@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev:server": "tsnd --respawn --transpile-only --quiet src/server.ts"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.1.3"
+  }
+}
