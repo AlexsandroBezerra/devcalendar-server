@@ -23,5 +23,8 @@
       "@config/*": ["config/*"],
       "@modules/*": ["modules/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
