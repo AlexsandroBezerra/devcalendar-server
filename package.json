@@ -9,7 +9,7 @@
     "start": "node dist/shared/infra/http/server.js",
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
     "dev:server": "tsnd -r tsconfig-paths/register --respawn --transpile-only --quiet --ignore-watch node_modules .",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "express": "^4.17.1"
