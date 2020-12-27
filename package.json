@@ -2,7 +2,7 @@
   "name": "devcalendar-server",
   "version": "1.0.0",
   "description": "A Rest API for DevCalendar application",
-  "repository": "git@github.com:AlexsandroBezerra/devcalendar-server.git",
+  "repository": "https://github.com/AlexsandroBezerra/devcalendar-server.git",
   "license": "MIT",
   "author": "Alexsandro G Bezerra <alexsandro.g.bezerra@gmail.com>",
   "main": "src/shared/infra/http/server.ts",
