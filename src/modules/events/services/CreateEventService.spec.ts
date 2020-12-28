@@ -21,4 +21,16 @@ describe('CreateEvent', () => {
     expect(isUuid(event.id)).toBe(true)
     expect(event.title).toEqual("New Year's eve")
   })
+
+  it('should create an event having a start time and an end time', async () => {
+    const event = await createEvent.execute({
+      title: "New Year's eve",
+      date: new Date(2020, 11, 31),
+      from: '08:00',
+      to: '09:32'
+    })
+
+    expect(event.from).toEqual(480)
+    expect(event.to).toEqual(572)
+  })
 })

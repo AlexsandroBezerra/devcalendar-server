@@ -6,4 +6,8 @@ export default class Event {
   description?: string
 
   date: Date
+
+  from?: number
+
+  to?: number
 }
