@@ -37,7 +37,6 @@ describe('App', () => {
     expect(response.body).toEqual(
       expect.objectContaining({
         title: "New Year's eve",
-        date: '2020-12-31T03:00:00.000Z',
         description: 'Description test'
       })
     )
