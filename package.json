@@ -41,6 +41,7 @@
     "express": "^4.17.1",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.4.0",
     "typeorm": "^0.2.29",
     "uuid": "^8.3.2"
   },

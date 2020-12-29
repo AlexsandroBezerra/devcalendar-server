@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe'
+
 import AppError from '@shared/errors/AppError'
 
 import User from '../infra/typeorm/entities/User'
@@ -10,9 +12,13 @@ interface IRequest {
   password: string
 }
 
+@injectable()
 class CreateUserService {
   constructor(
+    @inject('UsersRepository')
     private usersRepository: IUsersRepository,
+
+    @inject('HashProvider')
     private hashProvider: IHashProvider
   ) {}
 

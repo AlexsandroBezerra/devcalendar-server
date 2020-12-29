@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe'
+
 import { convertTimeToMinutes } from '@shared/utils/convertTimeToMinutes'
 
 import Event from '../infra/typeorm/entities/Event'
@@ -11,8 +13,12 @@ interface IRequest {
   to?: string
 }
 
+@injectable()
 class CreateEventService {
-  constructor(private eventsRepository: IEventsRepository) {}
+  constructor(
+    @inject('EventsRepository')
+    private eventsRepository: IEventsRepository
+  ) {}
 
   public async execute({
     title,
