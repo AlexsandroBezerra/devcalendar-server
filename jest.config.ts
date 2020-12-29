@@ -10,10 +10,8 @@ const config: Config.InitialOptions = {
   collectCoverageFrom: [
     './src/**/*.ts',
     '!./src/shared/infra/http/server.ts',
-    '!./src/shared/infra/typeorm/connection.ts',
-    '!./src/shared/infra/typeorm/migrations/**',
-    '!./src/modules/**/dtos/*',
-    '!./src/modules/**/repositories/*'
+    '!./src/shared/infra/typeorm/**/*',
+    '!./**/I[A-Z]*.ts'
   ],
   coverageProvider: 'v8',
   coverageReporters: ['lcov', 'text-summary'],

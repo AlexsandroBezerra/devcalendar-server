@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import express from 'express'
 
+import '../../containers'
 import createConnection from '../typeorm/connection'
 import routes from './routes'
 
