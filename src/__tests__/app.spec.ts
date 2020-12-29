@@ -33,7 +33,9 @@ describe('App', () => {
     const response = await request(app).post('/events').send({
       title: "New Year's eve",
       date: '2020-12-31 00:00:00.000',
-      description: 'Description test'
+      description: 'Description test',
+      from: '22:00',
+      to: '23:59'
     })
 
     expect(response.body).toEqual(
