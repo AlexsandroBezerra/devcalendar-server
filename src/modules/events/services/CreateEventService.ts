@@ -27,26 +27,26 @@ class CreateEventService {
     from,
     to
   }: IRequest): Promise<Event> {
-    let event: Event
-
     if (from && to) {
       const fromInMinutes = convertTimeToMinutes(from)
       const toInMinutes = convertTimeToMinutes(to)
 
-      event = await this.eventsRepository.create({
+      const event = await this.eventsRepository.create({
         title,
         description,
         date,
         from: fromInMinutes,
         to: toInMinutes
       })
-    } else {
-      event = await this.eventsRepository.create({
-        title,
-        description,
-        date
-      })
+
+      return event
     }
+
+    const event = await this.eventsRepository.create({
+      title,
+      description,
+      date
+    })
 
     return event
   }
