@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError'
 
+import User from '../infra/typeorm/entities/User'
 import IUsersRepository from '../repositories/IUsersRepository'
-import User from '../typeorm/entities/User'
 
 interface IRequest {
   name: string

@@ -2,8 +2,8 @@ import { validate as isUuid } from 'uuid'
 
 import AppError from '@shared/errors/AppError'
 
+import User from '../infra/typeorm/entities/User'
 import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository'
-import User from '../typeorm/entities/User'
 import CreateUserService from './CreateUserService'
 
 let fakeUsersRepository: FakeUsersRepository
