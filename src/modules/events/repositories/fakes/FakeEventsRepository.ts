@@ -1,11 +1,11 @@
 import { v4 as uuid } from 'uuid'
 
 import ICreateEventDTO from '@modules/events/dtos/ICreateEventDTO'
-import Event from '@modules/events/entities/Event'
+import Event from '@modules/events/infra/typeorm/entities/Event'
 
 import IEventsRepository from '../IEventsRepository'
 
-export default class FakeEventsRepository implements IEventsRepository {
+class FakeEventsRepository implements IEventsRepository {
   private events: Event[] = []
 
   public async create(eventData: ICreateEventDTO): Promise<Event> {
@@ -20,3 +20,5 @@ export default class FakeEventsRepository implements IEventsRepository {
     return event
   }
 }
+
+export default FakeEventsRepository

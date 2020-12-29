@@ -6,6 +6,17 @@ jobs:
   code:
     name: Test code
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: devcalendar_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: docker
+        ports:
+          - 5432:5432
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,6 +28,9 @@ jobs:
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
+
+      - name: Setup env
+        run: cp .env.example .env
 
       - name: Run Jest
         run: yarn test

@@ -1,6 +1,6 @@
 import { convertTimeToMinutes } from '@shared/utils/convertTimeToMinutes'
 
-import Event from '../entities/Event'
+import Event from '../infra/typeorm/entities/Event'
 import IEventsRepository from '../repositories/IEventsRepository'
 
 interface IRequest {
@@ -11,7 +11,7 @@ interface IRequest {
   to?: string
 }
 
-export default class CreateEventService {
+class CreateEventService {
   constructor(private eventsRepository: IEventsRepository) {}
 
   public async execute({
@@ -45,3 +45,5 @@ export default class CreateEventService {
     return event
   }
 }
+
+export default CreateEventService

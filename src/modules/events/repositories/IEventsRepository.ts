@@ -1,6 +1,8 @@
 import ICreateEventDTO from '../dtos/ICreateEventDTO'
-import Event from '../entities/Event'
+import Event from '../infra/typeorm/entities/Event'
 
-export default interface IEventsRepository {
+interface IEventsRepository {
   create(eventData: ICreateEventDTO): Promise<Event>
 }
+
+export default IEventsRepository
