@@ -36,10 +36,9 @@
 
 <h2 align="center">🚧 Under development 🚧</h2>
 
-<p id="insomnia-button" align="center">
-  <!-- <a href="https://insomnia.rest/run/?label=GoBarber-API&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fgobarber-backend%2Fmain%2FInsomnia.json" target="_blank" rel="noopener noreferrer"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a> -->
+<p align="center" id="insomnia-button">
+  <a href="https://insomnia.rest/run/?label=DevCalendar&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fdevcalendar-server%2Fmain%2FInsomnia.json" target="_blank" ><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
-
 
 <p id="about-the-project"></p>
 
@@ -79,7 +78,7 @@ Technologies that I am using to develop this api:
 
 ## 💻 Getting started
 
-<!-- Import the `Insomnia.json` on Insomnia App or click on [Run in Insomnia](#insomnia-button) button -->
+Import the `Insomnia.json` on Insomnia App or click on [Run in Insomnia](#insomnia-button) button
 
 ### Requirements
 
