@@ -8,6 +8,7 @@
   "main": "src/shared/infra/http/server.ts",
   "scripts": {
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev:server": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules .",
     "lint": "eslint --ext .ts src",
     "start": "node dist/shared/infra/http/server.js",
@@ -66,6 +67,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-typescript-metadata": "^0.3.1",
     "commitizen": "^4.2.2",
+    "coveralls": "^3.1.0",
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-config-standard": "^16.0.2",
