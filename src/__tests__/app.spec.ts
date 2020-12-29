@@ -11,6 +11,7 @@ describe('App', () => {
     connection = await createConnection('test-connection')
 
     await connection.query('DROP TABLE IF EXISTS events')
+    await connection.query('DROP TABLE IF EXISTS users')
     await connection.query('DROP TABLE IF EXISTS migrations')
 
     await connection.runMigrations()
@@ -18,6 +19,7 @@ describe('App', () => {
 
   beforeEach(async () => {
     await connection.query('DELETE FROM events')
+    await connection.query('DELETE FROM users')
   })
 
   afterAll(async () => {
@@ -38,6 +40,24 @@ describe('App', () => {
       expect.objectContaining({
         title: "New Year's eve",
         description: 'Description test'
+      })
+    )
+  })
+
+  it('should be able to create a new user', async () => {
+    const response = await request(app).post('/users').send({
+      name: 'Alexsandro G Bezerra',
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const user = response.body
+
+    expect(user).toHaveProperty('id')
+    expect(user).toEqual(
+      expect.objectContaining({
+        name: 'Alexsandro G Bezerra',
+        email: 'alexsandro.g.bezerra@gmail.com'
       })
     )
   })
