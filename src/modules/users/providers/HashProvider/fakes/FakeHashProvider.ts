@@ -5,9 +5,9 @@ class FakeHashProvider implements IHashProvider {
     return payload
   }
 
-  async compareHash(payload: string, hash: string): Promise<boolean> {
-    return payload === hash
-  }
+  // async compareHash(payload: string, hash: string): Promise<boolean> {
+  //   return payload === hash
+  // }
 }
 
 export default FakeHashProvider
