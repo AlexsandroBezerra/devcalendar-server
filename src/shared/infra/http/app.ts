@@ -1,9 +1,10 @@
 import 'reflect-metadata'
-import '../typeorm/connection'
-
 import express from 'express'
 
+import createConnection from '../typeorm/connection'
 import routes from './routes'
+
+createConnection()
 
 const app = express()
 

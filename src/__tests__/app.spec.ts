@@ -8,7 +8,7 @@ let connection: Connection
 
 describe('App', () => {
   beforeAll(async () => {
-    connection = await createConnection()
+    connection = await createConnection('test-connection')
 
     await connection.query('DROP TABLE IF EXISTS events')
     await connection.query('DROP TABLE IF EXISTS migrations')
