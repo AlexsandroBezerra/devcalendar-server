@@ -1,5 +1,3 @@
-import { validate as isUuid } from 'uuid'
-
 import FakeEventsRepository from '../repositories/fakes/FakeEventsRepository'
 import CreateEventService from './CreateEventService'
 
@@ -18,7 +16,7 @@ describe('CreateEvent', () => {
       date: new Date(2020, 11, 31)
     })
 
-    expect(isUuid(event.id)).toBe(true)
+    expect(event).toHaveProperty('id')
     expect(event.title).toEqual("New Year's eve")
   })
 

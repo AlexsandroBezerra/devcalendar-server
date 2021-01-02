@@ -11,6 +11,7 @@ const config: Config.InitialOptions = {
     './src/**/*.ts',
     '!./src/shared/infra/http/server.ts',
     '!./src/shared/infra/typeorm/**/*',
+    '!./src/shared/errors/handler.ts',
     '!./**/I[A-Z]*.ts'
   ],
   coverageProvider: 'v8',

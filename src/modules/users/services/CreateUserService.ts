@@ -26,7 +26,11 @@ class CreateUserService {
     const userAlreadyExists = await this.usersRepository.findByEmail(email)
 
     if (userAlreadyExists) {
-      throw new AppError('Email address already used')
+      throw new AppError(
+        'CONFLICT',
+        'The email address provided is already used',
+        409
+      )
     }
 
     const hashedPassword = await this.hashProvider.generateHash(password)
