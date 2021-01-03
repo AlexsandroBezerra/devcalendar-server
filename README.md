@@ -24,10 +24,6 @@
   <a href="https://github.com/AlexsandroBezerra/devcalendar-server/blob/main/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/AlexsandroBezerra/devcalendar-server?color=2B63FF">
   </a>
-
-  <a href='https://coveralls.io/github/AlexsandroBezerra/devcalendar-server?branch=main'>
-    <img src='https://coveralls.io/repos/github/AlexsandroBezerra/devcalendar-server/badge.svg?branch=main&color=2B63FF' alt='Coverage Status' />
-  </a>
 </p>
 
 <p align="center">
