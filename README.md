@@ -5,8 +5,7 @@
 
 <h3 align="center">Express Application for DevCalendar project</h3>
 
-<p align="center">The best way to schedule your service!</p>
-
+<p align="center">The best way to organize events' dates!</p>
 
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/AlexsandroBezerra/devcalendar-server?color=2B63FF">
