@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
     '!./src/shared/errors/handler.ts',
     '!./**/I[A-Z]*.ts'
   ],
-  coverageProvider: 'v8',
+  coverageProvider: 'babel',
   coverageReporters: ['lcov', 'text-summary'],
   preset: 'ts-jest',
   testEnvironment: 'node',
