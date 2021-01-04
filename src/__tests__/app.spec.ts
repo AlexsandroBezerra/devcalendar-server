@@ -30,14 +30,31 @@ describe('App', () => {
   })
 
   it('should be able to create a new event', async () => {
-    const response = await request(app).post('/events').send({
-      title: "New Year's eve",
-      date: '2020-12-31 00:00:00.000',
-      description: 'Description test',
-      from: '22:00',
-      to: '23:59'
+    await request(app).post('/users').send({
+      name: 'Alexsandro G Bezerra',
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
     })
 
+    const authResponse = await request(app).post('/sessions').send({
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const response = await request(app)
+      .post('/events')
+      .send({
+        title: "New Year's eve",
+        date: '2020-12-31 00:00:00.000',
+        description: 'Description test',
+        from: '22:00',
+        to: '23:59'
+      })
+      .set({
+        authorization: `Bearer ${authResponse.body.token}`
+      })
+
+    expect(response.body).toHaveProperty('id')
     expect(response.body).toEqual(
       expect.objectContaining({
         title: "New Year's eve",
@@ -62,5 +79,56 @@ describe('App', () => {
         email: 'alexsandro.g.bezerra@gmail.com'
       })
     )
+  })
+
+  it('should not be able to create a event when unauthenticated', async () => {
+    await request(app).post('/users').send({
+      name: 'Alexsandro G Bezerra',
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const authResponse = await request(app).post('/sessions').send({
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const responseNoToken = await request(app).post('/events').send({
+      title: "New Year's eve",
+      date: '2020-12-31 00:00:00.000',
+      description: 'Description test',
+      from: '22:00',
+      to: '23:59'
+    })
+
+    const responseMalFormattedToken = await request(app)
+      .post('/events')
+      .send({
+        title: "New Year's eve",
+        date: '2020-12-31 00:00:00.000',
+        description: 'Description test',
+        from: '22:00',
+        to: '23:59'
+      })
+      .set({
+        authorization: authResponse.body.token
+      })
+
+    const responseInvalidToken = await request(app)
+      .post('/events')
+      .send({
+        title: "New Year's eve",
+        date: '2020-12-31 00:00:00.000',
+        description: 'Description test',
+        from: '22:00',
+        to: '23:59'
+      })
+      .set({
+        authorization: 'Bearer invalid-token'
+      })
+
+    expect(responseNoToken.status).toBe(401)
+    expect(responseMalFormattedToken.status).toBe(401)
+    expect(responseInvalidToken.status).toBe(401)
   })
 })

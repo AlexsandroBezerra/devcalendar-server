@@ -7,9 +7,9 @@ class BCryptHashProvider implements IHashProvider {
     return bcrypt.hash(payload, 9)
   }
 
-  // compareHash(payload: string, hash: string): Promise<boolean> {
-  //   return bcrypt.compare(payload, hash)
-  // }
+  compareHash(payload: string, hash: string): Promise<boolean> {
+    return bcrypt.compare(payload, hash)
+  }
 }
 
 export default BCryptHashProvider

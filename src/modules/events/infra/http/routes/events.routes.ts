@@ -3,8 +3,11 @@ import { Router } from 'express'
 import { container } from 'tsyringe'
 
 import CreateEventService from '@modules/events/services/CreateEventService'
+import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated'
 
 const eventRouter = Router()
+
+eventRouter.use(ensureAuthenticated)
 
 eventRouter.post('/', async (request, response) => {
   const { title, date, description, from, to } = request.body
