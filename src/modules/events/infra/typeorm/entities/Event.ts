@@ -26,6 +26,9 @@ class Event {
   @Column()
   to?: number
 
+  @Column({ name: 'user_id' })
+  userId: string
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
 

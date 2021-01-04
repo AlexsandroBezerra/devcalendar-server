@@ -28,7 +28,8 @@ class CreateUserService {
     if (userAlreadyExists) {
       throw new AppError(
         'CONFLICT',
-        'The email address provided is already used'
+        'The email address provided is already used',
+        409
       )
     }
 

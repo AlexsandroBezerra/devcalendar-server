@@ -6,6 +6,7 @@ import Event from '../infra/typeorm/entities/Event'
 import IEventsRepository from '../repositories/IEventsRepository'
 
 interface IRequest {
+  userId: string
   title: string
   description?: string
   date: Date
@@ -21,6 +22,7 @@ class CreateEventService {
   ) {}
 
   public async execute({
+    userId,
     title,
     description,
     date,
@@ -32,6 +34,7 @@ class CreateEventService {
       const toInMinutes = convertTimeToMinutes(to)
 
       const event = await this.eventsRepository.create({
+        userId,
         title,
         description,
         date,
@@ -43,6 +46,7 @@ class CreateEventService {
     }
 
     const event = await this.eventsRepository.create({
+      userId,
       title,
       description,
       date

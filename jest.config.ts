@@ -12,7 +12,8 @@ const config: Config.InitialOptions = {
     '!./src/shared/infra/http/server.ts',
     '!./src/shared/infra/typeorm/**/*',
     '!./src/shared/errors/handler.ts',
-    '!./**/I[A-Z]*.ts'
+    '!./**/I[A-Z]*.ts',
+    '!./**/fakes/*.ts'
   ],
   coverageProvider: 'babel',
   coverageReporters: ['lcov', 'text-summary'],
