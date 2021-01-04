@@ -54,7 +54,7 @@ class AuthenticateUserService {
       )
     }
 
-    const token = this.authenticationProvider.sign({ id: user.id })
+    const token = this.authenticationProvider.sign(user)
 
     return {
       user,

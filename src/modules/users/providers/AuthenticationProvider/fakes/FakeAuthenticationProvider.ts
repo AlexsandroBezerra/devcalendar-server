@@ -1,3 +1,5 @@
+import User from '@modules/users/infra/typeorm/entities/User'
+
 import IAuthenticationProvider from '../models/IAuthenticationProvider'
 
 interface IToken {
@@ -6,7 +8,11 @@ interface IToken {
 }
 
 class FakeAuthenticationRepository implements IAuthenticationProvider {
-  public sign(payload: string | object): string {
+  public sign(user: User): string {
+    const payload = {
+      id: user.id
+    }
+
     const token = JSON.stringify({
       authenticated: true,
       payload
@@ -15,7 +21,7 @@ class FakeAuthenticationRepository implements IAuthenticationProvider {
     return token
   }
 
-  public async verify(token: string): Promise<string | object | undefined> {
+  public async verify(token: string): Promise<string | object | void> {
     const { authenticated, payload }: IToken = JSON.parse(token)
 
     if (!authenticated) {

@@ -1,5 +1,7 @@
+import User from '@modules/users/infra/typeorm/entities/User'
+
 interface IAuthenticationProvider {
-  sign(payload: string | object): string
+  sign(user: User): string
   verify(payload: string): Promise<string | object | void>
 }
 

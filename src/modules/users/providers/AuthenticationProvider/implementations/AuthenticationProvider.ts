@@ -1,11 +1,16 @@
 import jwt from 'jsonwebtoken'
 
 import authConfig from '@config/auth'
+import User from '@modules/users/infra/typeorm/entities/User'
 
 import IAuthenticationProvider from '../models/IAuthenticationProvider'
 
 class AuthenticationProvider implements IAuthenticationProvider {
-  public sign(payload: string | object): string {
+  public sign(user: User): string {
+    const payload = {
+      id: user.id
+    }
+
     return jwt.sign(payload, authConfig.secret, authConfig.config)
   }
 
