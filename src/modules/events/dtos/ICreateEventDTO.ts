@@ -1,4 +1,5 @@
 interface ICreateEventDTO {
+  userId: string
   title: string
   description?: string
   date: Date
