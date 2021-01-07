@@ -3,7 +3,7 @@ import cors from 'cors'
 import express from 'express'
 import 'express-async-errors'
 
-import '../../containers'
+import '@shared/containers'
 import errorHandler from '@shared/errors/handler'
 
 import createConnection from '../typeorm/connection'

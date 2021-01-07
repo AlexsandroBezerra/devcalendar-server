@@ -1,3 +1,4 @@
+import path from 'path'
 import request from 'supertest'
 import { Connection, getConnection } from 'typeorm'
 
@@ -130,5 +131,29 @@ describe('App', () => {
     expect(responseNoToken.status).toBe(401)
     expect(responseMalFormattedToken.status).toBe(401)
     expect(responseInvalidToken.status).toBe(401)
+  })
+
+  it('should be able to upload a user avatar', async () => {
+    const avatar = path.resolve(__dirname, 'avatar.jpeg')
+
+    await request(app).post('/users').send({
+      name: 'Alexsandro G Bezerra',
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const authResponse = await request(app).post('/sessions').send({
+      email: 'alexsandro.g.bezerra@gmail.com',
+      password: '123456'
+    })
+
+    const response = await request(app)
+      .patch('/users/avatar')
+      .attach('avatar', avatar)
+      .set({
+        authorization: `Bearer ${authResponse.body.token}`
+      })
+
+    expect(response.status).toBe(200)
   })
 })
