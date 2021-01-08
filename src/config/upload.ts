@@ -20,7 +20,7 @@ const uploadConfig: IUploadConfig = {
       destination: tmpFolder,
       filename(_, file, callback) {
         const fileHash = crypto.randomBytes(10).toString('hex')
-        const fileName = `${fileHash}-${file.originalname}`
+        const fileName = `${fileHash}-${file.originalname}`.replace(/ /g, '-')
 
         return callback(null, fileName)
       }

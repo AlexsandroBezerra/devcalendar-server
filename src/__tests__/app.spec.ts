@@ -147,6 +147,13 @@ describe('App', () => {
       password: '123456'
     })
 
+    await request(app)
+      .patch('/users/avatar')
+      .attach('avatar', avatar)
+      .set({
+        authorization: `Bearer ${authResponse.body.token}`
+      })
+
     const response = await request(app)
       .patch('/users/avatar')
       .attach('avatar', avatar)

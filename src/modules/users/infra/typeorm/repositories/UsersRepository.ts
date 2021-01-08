@@ -29,6 +29,18 @@ class UsersRepository implements IUsersRepository {
 
     return user
   }
+
+  async findById(id: string): Promise<User | undefined> {
+    const user = await this.ormRepository.findOne(id)
+
+    return user
+  }
+
+  async update(updatedUser: User): Promise<User> {
+    const user = await this.ormRepository.save(updatedUser)
+
+    return user
+  }
 }
 
 export default UsersRepository

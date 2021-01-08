@@ -4,6 +4,7 @@ import { container } from 'tsyringe'
 
 import uploadConfig from '@config/upload'
 import CreateUserService from '@modules/users/services/CreateUserService'
+import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService'
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated'
 
@@ -27,10 +28,22 @@ userRouter.post('/', async (request, response) => {
 
 userRouter.use(ensureAuthenticated)
 
-userRouter.patch('/avatar', upload.single('avatar'), (request, response) => {
-  const userId = request.user.id
+userRouter.patch(
+  '/avatar',
+  upload.single('avatar'),
+  async (request, response) => {
+    const userId = request.user.id
+    const { filename } = request.file
 
-  return response.json(userId)
-})
+    const updateUserAvatar = container.resolve(UpdateUserAvatarService)
+
+    const user = await updateUserAvatar.execute({
+      userId,
+      avatarFilename: filename
+    })
+
+    return response.json({ ...user, password: undefined })
+  }
+)
 
 export default userRouter
