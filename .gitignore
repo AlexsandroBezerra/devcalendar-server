@@ -105,4 +105,4 @@ dist
 
 # Uploads folder
 tmp/uploads/*
-!.gitkeep
+!avatar-placeholder.png

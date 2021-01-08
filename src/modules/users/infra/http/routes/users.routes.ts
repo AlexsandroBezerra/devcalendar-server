@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer'
 import { Router } from 'express'
 import multer from 'multer'
 import { container } from 'tsyringe'
@@ -23,7 +24,7 @@ userRouter.post('/', async (request, response) => {
     password
   })
 
-  return response.json({ ...user, password: undefined })
+  return response.json(classToClass(user))
 })
 
 userRouter.use(ensureAuthenticated)
@@ -42,7 +43,7 @@ userRouter.patch(
       avatarFilename: filename
     })
 
-    return response.json({ ...user, password: undefined })
+    return response.json(classToClass(user))
   }
 )
 
