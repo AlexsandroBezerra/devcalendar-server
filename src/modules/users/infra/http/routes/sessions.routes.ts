@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer'
 import { Router } from 'express'
 import { container } from 'tsyringe'
 
@@ -15,7 +16,7 @@ sessionsRouter.post('/', async (request, response) => {
     password
   })
 
-  return response.json({ ...data, user: { ...data.user, password: undefined } })
+  return response.json(classToClass(data))
 })
 
 export default sessionsRouter
