@@ -1,13 +1,19 @@
 import nodemailer from 'nodemailer'
 import Mail from 'nodemailer/lib/mailer'
+import { inject, injectable } from 'tsyringe'
 
+import IMailTemplateProvider from '../../MailTemplateProvider/models/IMailTemplateProvider'
 import ISendMailDTO from '../dtos/ISendMailDTO'
 import IMailProvider from '../models/IMailProvider'
 
+@injectable()
 class EtherealMailProvider implements IMailProvider {
   private client: Mail
 
-  constructor() {
+  constructor(
+    @inject('MailTemplateProvider')
+    private mailTemplateProvider: IMailTemplateProvider
+  ) {
     nodemailer.createTestAccount((_, account) => {
       const transporter = nodemailer.createTransport({
         host: account.smtp.host,
@@ -23,7 +29,9 @@ class EtherealMailProvider implements IMailProvider {
     })
   }
 
-  async sendMail({ from, to, subject, body }: ISendMailDTO): Promise<void> {
+  async sendMail({ from, to, subject, template }: ISendMailDTO): Promise<void> {
+    const parsedTemplate = await this.mailTemplateProvider.parse(template)
+
     const message = await this.client.sendMail({
       from: {
         name: from?.name || 'DevCalendar Team',
@@ -34,7 +42,7 @@ class EtherealMailProvider implements IMailProvider {
         address: to.email
       },
       subject,
-      html: body
+      html: parsedTemplate
     })
 
     console.log(`[RecoveryPassword: ${to.email}]`)

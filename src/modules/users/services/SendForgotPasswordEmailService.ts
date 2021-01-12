@@ -1,3 +1,4 @@
+import path from 'path'
 import { inject, injectable } from 'tsyringe'
 
 import AppError from '@shared/errors/AppError'
@@ -32,13 +33,26 @@ class SendForgotPasswordEmailService {
 
     const { token } = await this.userTokensRepository.generate(user.id)
 
+    const forgotPasswordTemplate = path.resolve(
+      __dirname,
+      '..',
+      'templates',
+      'forgot_password.hbs'
+    )
+
     await this.mailProvider.sendMail({
       to: {
         name: user.name,
         email: user.email
       },
       subject: '[DevCalendar] Password recovery',
-      body: token
+      template: {
+        file: forgotPasswordTemplate,
+        variables: {
+          name: user.name,
+          link: `${process.env.APP_WEB_URL}/reset-password?token=${token}`
+        }
+      }
     })
   }
 }

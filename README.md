@@ -1,7 +1,6 @@
 <h1 align="center">
-	<img alt="GoStack" src=".github/assets/logo.svg" width="400px" />
+	<img alt="DevCalendar" src=".github/assets/logo.svg" width="400px" />
 </h1>
-
 
 <h3 align="center">Express Application for DevCalendar project</h3>
 
@@ -111,7 +110,7 @@ $ docker run --name devcalendar-postgres -e POSTGRES_DB=devcalendar \
 $ yarn typeorm migration:run
 
 # To finish, run the api service
-$ yarn dev:server
+$ yarn dev
 
 # Well done, project is started!
 ```

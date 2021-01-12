@@ -5,5 +5,5 @@ import IMailProvider from './models/IMailProvider'
 
 container.registerInstance<IMailProvider>(
   'MailProvider',
-  new EtherealMailProvider()
+  container.resolve(EtherealMailProvider)
 )
