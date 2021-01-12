@@ -9,7 +9,7 @@
   "scripts": {
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "dev:server": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules .",
+    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules .",
     "lint": "eslint --ext .ts src",
     "start": "node dist/shared/infra/http/server.js",
     "test": "jest --passWithNoTests",
