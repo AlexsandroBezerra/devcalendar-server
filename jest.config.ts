@@ -7,14 +7,7 @@ const config: Config.InitialOptions = {
   bail: true,
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: [
-    './src/**/*.ts',
-    '!./src/shared/infra/http/server.ts',
-    '!./src/shared/infra/typeorm/**/*',
-    '!./src/shared/errors/handler.ts',
-    '!./**/I[A-Z]*.ts',
-    '!./**/fakes/*.ts'
-  ],
+  collectCoverageFrom: ['./src/modules/**/services/*.ts'],
   coverageProvider: 'babel',
   coverageReporters: ['lcov', 'text-summary'],
   preset: 'ts-jest',
