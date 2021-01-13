@@ -9,7 +9,7 @@
   "scripts": {
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "dev": "tsnd -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules .",
+    "dev": "tsnd --inspect -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules .",
     "lint": "eslint --ext .ts src",
     "start": "node dist/shared/infra/http/server.js",
     "test": "jest --passWithNoTests",
@@ -51,7 +51,8 @@
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.4.0",
     "typeorm": "^0.2.29",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
