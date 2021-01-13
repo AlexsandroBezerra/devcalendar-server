@@ -49,7 +49,8 @@ class UpdateProfileService {
     if (password && !oldPassword) {
       throw new AppError(
         'UNAUTHORIZED',
-        'You need to inform the old password to set a new password'
+        'You need to inform the old password to set a new password',
+        401
       )
     }
 
@@ -60,7 +61,7 @@ class UpdateProfileService {
       )
 
       if (!checkOldPassword) {
-        throw new AppError('', 'Old password does not match')
+        throw new AppError('UNAUTHORIZED', 'Old password does not match', 401)
       }
 
       user.password = await this.hashProvider.generateHash(password)
