@@ -37,7 +37,7 @@ passwordRouter.post('/reset', async (request, response) => {
     password: Yup.string().required('Password is required'),
     passwordConfirmation: Yup.string()
       .oneOf([Yup.ref('password')], 'Bad confirmation')
-      .required('passwordConfirmation is required')
+      .required('Password confirmation is required')
   })
 
   const data = { password, passwordConfirmation, token }
