@@ -17,7 +17,14 @@ const errorHandler: ErrorRequestHandler = (err, request, response, _) => {
       }
     })
 
-    return response.status(400).json({ message: 'Validation fails', errors })
+    const statusCode = 400
+
+    return response.status(statusCode).json({
+      statusCode,
+      code: 'BAD_REQUEST',
+      message: 'Validation fails',
+      errors
+    })
   }
 
   if (err instanceof AppError) {
