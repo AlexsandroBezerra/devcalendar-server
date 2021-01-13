@@ -131,7 +131,7 @@ $ gh repo fork AlexsandroBezerra/devcalendar-server
 
 ```bash
 # Clone your fork
-$ git clone your-fork-url && cd gobarber-api
+$ git clone your-fork-url && cd devcalendar-server
 
 # Create a branch with your feature
 $ git checkout -b my-feature
