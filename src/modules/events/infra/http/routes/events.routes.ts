@@ -4,8 +4,25 @@ import { container } from 'tsyringe'
 import * as Yup from 'yup'
 
 import CreateEventService from '@modules/events/services/CreateEventService'
+import ListEventsService from '@modules/events/services/ListEventsService'
 
 const eventRouter = Router()
+
+eventRouter.get('/', async (request, response) => {
+  const userId = request.user.id
+  const { date } = request.query
+
+  const parsedDate = parseISO(date as string)
+
+  const listEvents = container.resolve(ListEventsService)
+
+  const events = await listEvents.execute({
+    userId,
+    date: parsedDate
+  })
+
+  return response.json(events)
+})
 
 eventRouter.post('/', async (request, response) => {
   const userId = request.user.id
