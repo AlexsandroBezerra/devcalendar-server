@@ -22,16 +22,16 @@ class EventsRepository implements IEventsRepository {
   }
 
   public async find({ date, userId }: IFindEventsDTO): Promise<Event[]> {
-    const day = date.getDay()
-    const month = date.getMonth()
-    const year = date.getFullYear()
+    const day = String(date.getDate()).padStart(2, '0')
+    const month = String(date.getMonth() + 1).padStart(2, '0')
+    const year = String(date.getFullYear())
 
     const events = await this.ormRepository.find({
       where: {
         userId,
         date: Raw(
           dateField =>
-            `to_char(${dateField}, 'DD-MM-YYY') = '${day}-${month}-${year}'`
+            `to_char(${dateField}, 'DD-MM-YYYY') = '${day}-${month}-${year}'`
         )
       }
     })

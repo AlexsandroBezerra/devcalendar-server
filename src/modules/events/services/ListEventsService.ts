@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe'
+
 import Event from '../infra/typeorm/entities/Event'
 import IEventsRepository from '../repositories/IEventsRepository'
 
@@ -6,8 +8,12 @@ interface IRequest {
   date: Date
 }
 
+@injectable()
 class ListEventsService {
-  constructor(private eventsRepository: IEventsRepository) {}
+  constructor(
+    @inject('EventsRepository')
+    private eventsRepository: IEventsRepository
+  ) {}
 
   public async execute({ userId, date }: IRequest): Promise<Event[]> {
     const events = await this.eventsRepository.find({
