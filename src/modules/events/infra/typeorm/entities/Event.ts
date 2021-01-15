@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer'
 import {
   Column,
   CreateDateColumn,
@@ -5,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm'
+
+import { convertMinutesToTime } from '@shared/utils/convertMinutesToTime'
 
 @Entity('events')
 class Event {
@@ -21,9 +24,11 @@ class Event {
   date: Date
 
   @Column()
+  @Transform(value => (value ? convertMinutesToTime(value) : null))
   from?: number
 
   @Column()
+  @Transform(value => (value ? convertMinutesToTime(value) : null))
   to?: number
 
   @Column({ name: 'user_id' })

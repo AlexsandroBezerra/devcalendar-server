@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer'
 import { parseISO } from 'date-fns'
 import { Router } from 'express'
 import { container } from 'tsyringe'
@@ -21,7 +22,7 @@ eventRouter.get('/', async (request, response) => {
     date: parsedDate
   })
 
-  return response.json(events)
+  return response.json(classToClass(events))
 })
 
 eventRouter.post('/', async (request, response) => {
