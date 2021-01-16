@@ -25,20 +25,16 @@
 </p>
 
 <p align="center">
-  <a href="#about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#license">License</a>
+  <a href="#-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
 </p>
-
-<h2 align="center">🚧 Under development 🚧</h2>
 
 <p align="center" id="insomnia-button">
   <a href="https://insomnia.rest/run/?label=DevCalendar&uri=https%3A%2F%2Fraw.githubusercontent.com%2FAlexsandroBezerra%2Fdevcalendar-server%2Fmain%2FInsomnia.json" target="_blank" ><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
-
-<p id="about-the-project"></p>
 
 ## 💁 About the project
 
@@ -50,16 +46,16 @@ Users can use it to save and to manage their events.
 
 To see the **DevCalendar web client**, [click here](https://github.com/AlexsandroBezerra/devcalendar-web) <br />
 
-<p id="technologies"></p>
-
-## Technologies
+## 🚀 Technologies
 
 Technologies that I am using to develop this api:
 
 - [Node.js](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express](https://expressjs.com/pt-br/)
+- [Multer](https://github.com/expressjs/multer)
 - [TypeORM](https://typeorm.io/#/)
+- [JWT-token](https://jwt.io/)
 - [uuid v4](https://github.com/thenativeweb/uuidv4/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Date-fns](https://date-fns.org/)
@@ -71,8 +67,6 @@ Technologies that I am using to develop this api:
 - [Eslint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [EditorConfig](https://editorconfig.org/)
-
-<p id="getting-started"></p>
 
 ## 💻 Getting started
 
@@ -115,8 +109,6 @@ $ yarn dev
 # Well done, project is started!
 ```
 
-<p id="how-to-contribute"></p>
-
 ## 🤔 How to contribute?
 **Make a fork of this repository**
 
@@ -144,8 +136,6 @@ $ git push origin my-feature
 ```
 
 After your pull request is merged, you can delete your branch
-
-<p id="license"></p>
 
 ## 📝 License
 
